@@ -17,21 +17,21 @@ interface SidebarProps {
 
 export function Sidebar({ activeView, onViewChange }: SidebarProps) {
   return (
-    <aside className="flex flex-col p-4 h-screen bg-white shadow-md min-w-[220px]">
+    <aside className="flex flex-col p-4 min-h-screen bg-black text-white min-w-[220px]">
       <div className="mb-8 flex flex-col">
         <Title
           order={2}
           size="2xl"
-          className="text-uvm-negro mb-2 font-bold tracking-tight"
+          className="text-white mb-2 font-bold tracking-tight"
         >
           Dashboard Ruta Lince
         </Title>
-        <Text size="lg" className="text-uvm-gris font-medium">
+        <Text size="lg" className="text-gray-300 font-medium">
           Panel de Supervisión
         </Text>
       </div>
 
-      <hr className="border-t border-gray-300 my-1" />
+      <hr className="border-t border-white/20 my-1" />
 
       <nav className="flex flex-col gap-2 mt-6 w-full">
         {navigationItems.map((item) => {
@@ -46,9 +46,9 @@ export function Sidebar({ activeView, onViewChange }: SidebarProps) {
               className={`w-full flex items-center gap-x-3 justify-start rounded-lg font-medium text-sm px-4 py-2 transition-colors ${
                 isActive
                   ? "bg-uvm-rojo text-white"
-                  : "bg-transparent text-uvm-gris hover:bg-gray-100"
+                  : "bg-transparent text-gray-300 hover:bg-white/10"
               }`}
-              variant={isActive ? "filled" : "subtle"}
+              variant="subtle"
               onClick={() => onViewChange(item.key)}
               style={{
                 cursor: "pointer",

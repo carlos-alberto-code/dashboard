@@ -30,7 +30,7 @@
 display: grid;
 max-height: 100vh;
 grid-template-columns: repeat(6, 1fr);
-grid-template-rows: repeat(5, 1fr);
+grid-template-rows: repeat(2, 1fr) .2fr repeat(2, 1fr);
 grid-column-gap: 15px;
 grid-row-gap: 15px;
 }
