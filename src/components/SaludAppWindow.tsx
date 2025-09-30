@@ -18,7 +18,7 @@ function MetricCard({ m }: { m: Metric }) {
       <span className="text-xl text-uvm-gris">{m.label}</span>
 
       <div className="flex items-baseline gap-2">
-        <span className="text-5xl font-extrabold text-uvm-negro leading-none">
+        <span className="text-4xl font-bold text-uvm-negro leading-none">
           {m.value}
         </span>
         {m.unit && (
@@ -166,7 +166,7 @@ const SaludAppWindow: React.FC = () => {
             </span>
           </div>
 
-          <span className="text-base text-uvm-gris mt-2">
+          <span className="text-base text-uvm-gris mb-3">
             Meta:{" "}
             <span className="font-bold text-uvm-negro">
               {data.pieChart.meta}%
