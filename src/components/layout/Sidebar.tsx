@@ -1,65 +1,89 @@
-// components/layout/Sidebar.tsx
-import { Title, Text, NavLink } from "@mantine/core";
-import { Activity, Users, BarChart3, BookOpen, Trophy } from "lucide-react";
+import { Heart, UsersRound, MessageSquare, BookOpen, Gamepad2, X, LogOut } from "lucide-react";
+import { NavLink } from "react-router-dom"; 
+import { useAuth } from "../context/AuthContext";
 
+// ... (navigationItems se mantiene igual)
 const navigationItems = [
-  { icon: Activity, label: "Salud de la App", key: "appHealth" },
-  { icon: Users, label: "Usuarios", key: "users" },
-  { icon: BarChart3, label: "Engagement", key: "engagement" },
-  { icon: BookOpen, label: "Aprendizaje", key: "learning" },
-  { icon: Trophy, label: "Gamificación", key: "gamification" },
+  { icon: Heart, label: "Salud de la App", path: "/" },
+  { icon: UsersRound, label: "Usuarios", path: "/users" },
+  { icon: MessageSquare, label: "Engagement", path: "/engagement" },
+  { icon: BookOpen, label: "Aprendizaje", path: "/learning" },
+  { icon: Gamepad2, label: "Gamificación", path: "/gamification" },
 ];
 
+
 interface SidebarProps {
-  activeView: string;
-  onViewChange: (view: string) => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export function Sidebar({ activeView, onViewChange }: SidebarProps) {
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
+  const baseLinkClasses = "w-full flex items-center gap-x-3 justify-start rounded-lg font-medium text-sm px-4 py-2 transition-colors";
+  const { logout } = useAuth(); 
+
   return (
-    <aside className="flex flex-col p-4 min-h-screen bg-black text-white min-w-[220px]">
-      <div className="mb-8 flex flex-col">
-        <Title
-          order={2}
-          size="2xl"
-          className="text-white mb-2 font-bold tracking-tight"
-        >
-          Dashboard Ruta Lince
-        </Title>
-        <Text size="lg" className="text-gray-300 font-medium">
-          Panel de Supervisión
-        </Text>
+    <aside
+      className={`fixed inset-y-0 left-0 z-40 bg-black text-white min-w-[220px] 
+                 transform transition-transform duration-300 ease-in-out 
+                 h-screen md:sticky md:top-0 md:translate-x-0  
+                 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}
+    >
+      <div className="h-full flex flex-col p-4">
+        
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-x-3">
+              <span className="text-3xl font-bold text-white tracking-tighter">UVM</span>
+              <div className="h-12 w-px bg-gray-600" />
+              <div className="flex flex-col">
+                <span className="text-2xl font-semibold text-white leading-tight">Dashboard</span>
+                <span className="text-2xl font-semibold text-white leading-tight">Ruta Lince</span>
+              </div>
+            </div>
+            <p className="mt-1 text-base text-gray-400">Panel de Superusuario</p>
+          </div>
+          <button onClick={onClose} className="md:hidden text-gray-300 hover:text-white">
+            <X size={24} />
+          </button>
+        </div>
+
+        <hr className="border-t border-white/20 my-1" />
+
+        <nav className="flex flex-col gap-2 mt-6 w-full">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                onClick={onClose}
+                end={item.path === '/'} 
+                className={({ isActive }) =>
+                  `${baseLinkClasses} ${
+                    isActive
+                      ? 'bg-red-700 text-white py-3' 
+                      : 'bg-transparent text-gray-300 hover:bg-white/10' 
+                  }`
+                }
+              >
+                <Icon size={18} />
+                <span className='text-lg'>{item.label}</span>
+              </NavLink>
+            );
+          })}
+        </nav>
+
+        <div className="mt-auto">
+          <hr className="border-t border-white/20 my-4" />
+          <button
+            onClick={logout}
+            className={`${baseLinkClasses} text-gray-300 hover:bg-red-700 hover:text-white`}
+          >
+            <LogOut size={18} />
+            <span>Cerrar Sesión</span>
+          </button>
+        </div>
       </div>
-
-      <hr className="border-t border-white/20 my-1" />
-
-      <nav className="flex flex-col gap-2 mt-6 w-full">
-        {navigationItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = item.key === activeView;
-          return (
-            <NavLink
-              key={item.key}
-              label={item.label}
-              leftSection={<Icon size={18} />}
-              active={isActive}
-              className={`w-full flex items-center gap-x-3 justify-start rounded-lg font-medium text-sm px-4 py-2 transition-colors ${
-                isActive
-                  ? "bg-uvm-rojo text-white"
-                  : "bg-transparent text-gray-300 hover:bg-white/10"
-              }`}
-              variant="subtle"
-              onClick={() => onViewChange(item.key)}
-              style={{
-                cursor: "pointer",
-                boxShadow: isActive
-                  ? "0 2px 8px rgba(0,0,0,0.08)"
-                  : undefined,
-              }}
-            />
-          );
-        })}
-      </nav>
     </aside>
   );
 }
