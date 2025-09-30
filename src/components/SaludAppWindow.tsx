@@ -108,12 +108,18 @@ const SaludAppWindow: React.FC = () => {
   }
 
   return (
-    
     <div className="p-6 min-h-screen flex flex-col gap-8">
       <div className="mb-2">
-        <Title order={1} className="text-3xl font-extrabold text-uvm-negro mb-2">Salud de la App</Title>
+        <Title
+          order={1}
+          className="text-3xl font-extrabold text-uvm-negro mb-2"
+        >
+          Salud de la App
+        </Title>
       </div>
-        <div className="parent">
+
+      <div className="parent">
+        {/* Sesiones sin fallos */}
         <div className="div1 relative bg-white border border-gray-300 rounded-xl py-4 px-4 shadow flex flex-col items-center">
           <Title
             order={2}
@@ -121,8 +127,15 @@ const SaludAppWindow: React.FC = () => {
           >
             Sesiones sin fallos
           </Title>
-          <span className="text-base text-uvm-gris ">Porcentaje de sesiones sin fallos</span>
-          <div className="relative w-full flex items-center justify-center my-2" style={{ height: 180 }}>
+
+          <span className="text-base text-uvm-gris">
+            Porcentaje de sesiones sin fallos
+          </span>
+
+          <div
+            className="relative w-full flex items-center justify-center my-2"
+            style={{ height: 180 }}
+          >
             <PieChart
               height={180}
               series={[
@@ -135,49 +148,66 @@ const SaludAppWindow: React.FC = () => {
                   startAngle: -90,
                   endAngle: 90,
                   cy: 90,
-                }
+                },
               ]}
               margin={{ top: 0, bottom: 0 }}
               hideLegend
             />
+
             <span
               className="absolute text-2xl font-semibold text-uvm-gris"
-              style={{ top: '55%', left: '50%', transform: 'translate(-50%, -50%)' }}
+              style={{
+                top: "55%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
             >
               {data.pieChart.value}%
             </span>
           </div>
+
           <span className="text-base text-uvm-gris mt-2">
-            Meta: <span className="font-bold text-uvm-negro">{data.pieChart.meta}%</span>
+            Meta:{" "}
+            <span className="font-bold text-uvm-negro">
+              {data.pieChart.meta}%
+            </span>
           </span>
         </div>
+
+        {/* Métricas */}
         <div className="div2">
           <MetricCard m={data.metrics.latencyP50} />
         </div>
+
         <div className="div3">
           <MetricCard m={data.metrics.appStoreRating} />
         </div>
+
         <div className="div4">
           <MetricCard m={data.metrics.latencyP95} />
         </div>
+
         <div className="div5">
           <MetricCard m={data.metrics.playStoreRating} />
         </div>
-       <div className="div6">
-  <SessionsHistoryCard
-    months={data.timeseries.months}
-    values={data.timeseries.sessionsOK}
-  />
-</div>
 
-<div className="div7">
-  <LatencyTrendCard
-    months={data.timeseries.months}
-    p50={data.timeseries.p50}
-    p95={data.timeseries.p95}
-  />
-</div>
-      </div>      
+        {/* Sesiones */}
+        <div className="div6">
+          <SessionsHistoryCard
+            months={data.timeseries.months}
+            values={data.timeseries.sessionsOK}
+          />
+        </div>
+
+        {/* Latencias */}
+        <div className="div7">
+          <LatencyTrendCard
+            months={data.timeseries.months}
+            p50={data.timeseries.p50}
+            p95={data.timeseries.p95}
+          />
+        </div>
+      </div>
     </div>
   );
 };
