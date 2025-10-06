@@ -1,69 +1,130 @@
-# React + TypeScript + Vite
+# Dashboard Ruta Lince - UVM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Panel de administración para la aplicación Ruta Lince de la Universidad del Valle de México.
 
-Currently, two official plugins are available:
+## Requisitos Previos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de comenzar, asegúrate de tener instalado:
 
-## Expanding the ESLint configuration
+- **Node.js** (versión 18 o superior)
+- **npm**
+- **Git**
+- **Editor de código** (recomendado: IntelliJ IDEA 2025, Visual Studio Code)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Configuración Inicial del Proyecto
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Solicitar Acceso al Repositorio
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Antes de clonar el proyecto, debes solicitar acceso al propietario del repositorio:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Contacta al administrador del proyecto
+2. Proporciona tu usuario o correo de GitHub
+3. Espera la confirmación de acceso como colaborador
+
+### 2. Clonar el Repositorio
+
+Una vez tengas los permisos, clona el proyecto (asegúrate de tener Git previamente instalado):
+
+```bash
+git clone [URL_DEL_REPOSITORIO]
+```
+Un tutorial sobre cómo clonar el repositorio está totalmente fuera del alcance de este archivo. Asegúrate de entender Git y GitHub antes de continuar.
+
+### 3. Instalar Dependencias
+
+Usamos **npm** como gestor de paquetes, pero eres libre de usar cualquier otro.
+Antes de comenzar en el desarrollo, instala las dependencias del proyecto.
+
+**Con npm:**
+```bash
+npm install
+```
+## Editor de Código Recomendado
+
+Este proyecto está optimizado para trabajar con **IntelliJ IDEA 2025**, aunque también es compatible con:
+- Visual Studio Code
+- WebStorm
+- Cualquier editor que soporte TypeScript y React
+
+### Extensiones/Plugins Recomendados (Intellij IDEA 2025 y VSCode)
+- ESLint
+- Tailwind CSS IntelliSense
+- TypeScript and JavaScript Language Features
+
+## Ejecutar el Proyecto en Modo Desarrollo
+
+### Windows (CMD/PowerShell/Git Bash)
+```cmd
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### macOS/Linux (Terminal)
+```bash
+npm run dev
 ```
+
+El proyecto se ejecutará por defecto en: `http://localhost:5173`
+
+## Credenciales de Prueba
+
+Para acceder al sistema en ambiente de desarrollo:
+
+- **Usuario:** `111`
+- **Contraseña:** `111`
+
+> **Nota:** Estas son credenciales de desarrollo únicamente.
+
+## Prácticas de Colaboración
+
+### Antes de Hacer Push
+
+**SIEMPRE** actualiza tu rama local antes de subir cambios:
+
+```bash
+git pull origin master
+# o si estás en otra rama
+git pull origin [nombre-de-tu-rama]
+```
+
+### Nunca Trabajes Directamente en Master
+
+La rama `master` está protegida. **NUNCA** hagas commits directos:
+
+```bash
+# MAL
+git checkout master
+git add .
+git commit -m "cambios"
+git push origin master
+
+# BIEN
+git checkout -b feature/nueva-funcionalidad
+git add .
+git commit -m "descripción del cambio"
+git push origin feature/nueva-funcionalidad
+```
+
+### Nomenclatura de Ramas
+
+Crea ramas descriptivas. Eres libre de usar el prefijo que consideres adecuado.
+
+### Comunicación con el Equipo
+
+1. **Antes de empezar:**
+    - Informa al equipo qué funcionalidad vas a desarrollar. Generalmente, el equipo debió asignarte algo
+    - Revisa si alguien más está trabajando en algo relacionado. Habrá conflictos en Git si trabajas sobre archivos en los que otro también trabaja
+
+2. **Durante el desarrollo:**
+    - Haz commits pequeños y frecuentes con mensajes descriptivos
+    - Mantén actualizada tu rama con los cambios de `master`, más nunca actualices master directamente.
+
+3. **Al terminar:**
+    - Has push de tu rama local a una nueva rama remota para su revisión, aprobación e integración.`
+
+## Licencia
+
+Todos los derechos reservados por Universidad del Valle de México.
+
+---
+
+**¡Bienvenido al equipo de desarrollo de Dashboard Ruta Lince!** 
