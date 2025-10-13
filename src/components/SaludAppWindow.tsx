@@ -6,6 +6,29 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import type { Metric } from '../types/AppHealth';
 import { LineChart } from '@mui/x-charts/LineChart';
 
+const gridStyles: React.CSSProperties = {
+  display: 'grid',
+  maxHeight: '100svh',
+  gridTemplateColumns: 'repeat(6, 1fr)',
+  gridTemplateRows: 'repeat(2, 1fr) 0.2fr repeat(2, 1fr)',
+  columnGap: '15px',
+  rowGap: '15px',
+};
+
+const gridItemStyles: { [key: string]: React.CSSProperties } = {
+  div1: {
+    gridArea: '1 / 1 / 4 / 3',
+    alignSelf: 'start' as const,
+  },
+  div2: { gridArea: '1 / 3 / 2 / 5' },
+  div3: { gridArea: '1 / 5 / 2 / 7' },
+  div4: { gridArea: '2 / 3 / 3 / 5' },
+  div5: { gridArea: '2 / 5 / 3 / 7' },
+  div6: { gridArea: '4 / 1 / 6 / 4' },
+  div7: { gridArea: '4 / 4 / 6 / 7' },
+};
+
+
 const trendIcon = (t?: 'up' | 'down' | 'flat') =>
   t === 'up' ? '↑' : t === 'down' ? '↓' : '→';
 
@@ -118,9 +141,9 @@ const SaludAppWindow: React.FC = () => {
         </Title>
       </div>
 
-      <div className="parent">
+      <div style={gridStyles}>
         {/* Sesiones sin fallos */}
-        <div className="div1 relative bg-white border border-gray-300 rounded-xl py-4 px-4 shadow flex flex-col items-center">
+        <div style={gridItemStyles.div1} className="relative bg-white border border-gray-300 rounded-xl py-4 px-4 shadow flex flex-col items-center">
           <Title
             order={2}
             className="text-xl text-uvm-negro text-left self-start py-2"
@@ -175,24 +198,24 @@ const SaludAppWindow: React.FC = () => {
         </div>
 
         {/* Métricas */}
-        <div className="div2">
+        <div style={gridItemStyles.div2}>
           <MetricCard m={data.metrics.latencyP50} />
         </div>
 
-        <div className="div3">
+        <div style={gridItemStyles.div3}>
           <MetricCard m={data.metrics.appStoreRating} />
         </div>
 
-        <div className="div4">
+        <div style={gridItemStyles.div4}>
           <MetricCard m={data.metrics.latencyP95} />
         </div>
 
-        <div className="div5">
+        <div style={gridItemStyles.div5}>
           <MetricCard m={data.metrics.playStoreRating} />
         </div>
 
         {/* Sesiones */}
-        <div className="div6">
+        <div style={gridItemStyles.div6}>
           <SessionsHistoryCard
             months={data.timeseries.months}
             values={data.timeseries.sessionsOK}
@@ -200,7 +223,7 @@ const SaludAppWindow: React.FC = () => {
         </div>
 
         {/* Latencias */}
-        <div className="div7">
+        <div style={gridItemStyles.div7}>
           <LatencyTrendCard
             months={data.timeseries.months}
             p50={data.timeseries.p50}
