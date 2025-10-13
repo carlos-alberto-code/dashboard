@@ -4,7 +4,6 @@ import { Title } from '@mantine/core';
 import { LineChart } from '@mui/x-charts/LineChart';
 import type { UsersData, Trend } from '../types/Users';
 import { UsersController } from '../controllers/UsersController';
-import { AppHealthController } from '../controllers/SaludAppController';
 
 const gridStyles: React.CSSProperties = {
   display: 'grid',
