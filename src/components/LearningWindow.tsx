@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Title } from '@mantine/core';
 import { LineChart } from '@mui/x-charts/LineChart';
+import { BarChart } from '@mui/x-charts/BarChart';
 import type { LearningData } from '../types/Learning';
 import { LearningController } from '../controllers/LearningController';
 
@@ -135,14 +136,14 @@ const LearningWindow: React.FC = () => {
             <span className="text-lg font-semibold text-uvm-negro">
               Preparación para Benchmark
             </span>
-            <LineChart
+            <BarChart
               height={280}
-              xAxis={[{ scaleType: 'point', data: data.benchmarkPrep.topics }]}
+              xAxis={[{ scaleType: 'band', data: data.benchmarkPrep.topics }]}
               series={[
                 {
                   data: data.benchmarkPrep.percent,
                   label: '% de Usuarios Preparados',
-                  showMark: true,
+                  color: '#7C4DFF',
                 },
               ]}
               yAxis={[{ min: 0, max: 100 }]}
@@ -161,11 +162,11 @@ const LearningWindow: React.FC = () => {
               height={280}
               xAxis={[{ scaleType: 'point', data: data.timesToPass.weeks }]}
               series={[
-                { data: data.timesToPass.max, label: 'Máximo' },
-                { data: data.timesToPass.min, label: 'Mínimo' },
-                { data: data.timesToPass.q3, label: 'Q3' },
-                { data: data.timesToPass.q1, label: 'Q1' },
-                { data: data.timesToPass.median, label: 'Mediana' },
+                { data: data.timesToPass.max, label: 'Máximo', showMark: true, curve: 'monotoneX', color: '#D1D5DB' },
+                { data: data.timesToPass.min, label: 'Mínimo', showMark: true, curve: 'monotoneX', color: '#93C5FD' },
+                { data: data.timesToPass.q3, label: 'Q3', showMark: true, curve: 'monotoneX', color: '#EF4444' },
+                { data: data.timesToPass.q1, label: 'Q1', showMark: true, curve: 'monotoneX', color: '#60A5FA' },
+                { data: data.timesToPass.median, label: 'Mediana', showMark: true, curve: 'monotoneX', color: '#1D4ED8' },
               ]}
               yAxis={[{ min: 0 }]}
               grid={{ vertical: true, horizontal: true }}
