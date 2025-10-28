@@ -94,7 +94,6 @@ const GamificationWindow: React.FC = () => {
     );
   }
 
-  // Escalado para mostrar % de conversión sobre la misma escala de Usuarios
   const usersMax = Math.max(...data.funnel.users);
   const conversionScaled = data.funnel.conversionPct.map((p) =>
     Math.round((p / 100) * usersMax)
