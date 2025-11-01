@@ -2,16 +2,16 @@ import { Routes, Route } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import SaludAppWindow from './components/SaludAppWindow';
 import UsuariosWindow from './components/UsuariosWindow';
-import LoginPage from "./components/LoginPage";
 import { ProtectedRoute } from './components/ProtectedRoute';
 import EngagementWindow from './components/EngagementWindow';
 import LearningWindow from './components/LearningWindow';
 import GamificationWindow from './components/GamificationWindow';
+import Login from "./views/Login.tsx";
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<LoginPage />} />
+      <Route path="/login" element={<Login />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<MainLayout />}>

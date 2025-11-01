@@ -1,9 +1,9 @@
 import {useState} from 'react';
-import {useAuth} from './context/AuthContext';
 import {useNavigate} from 'react-router-dom';
+import {useAuth} from "../components/context/AuthContext.tsx";
 import {TextInput, PasswordInput, Button, Alert, Title} from '@mantine/core';
 
-const LoginPage = () => {
+const Login = () => {
     const {login} = useAuth();
     const navigate = useNavigate();
 
@@ -123,4 +123,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default Login;
