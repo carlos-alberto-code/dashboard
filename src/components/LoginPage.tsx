@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import {useAuth} from './context/AuthContext';
 import {useNavigate} from 'react-router-dom';
+import {TextInput, PasswordInput, Button, Alert, Title} from '@mantine/core';
 
 const LoginPage = () => {
     const {login} = useAuth();
@@ -38,52 +39,83 @@ const LoginPage = () => {
 
             <div className="w-full lg:w-1/3 flex items-center justify-center p-8">
                 <div className="w-full max-w-md">
-                    <h2 className="text-3xl font-bold mb-8 text-gray-800 text-center">Inicio de sesión</h2>
+                    <Title
+                        order={2}
+                        style={{
+                            fontSize: '1.875rem',
+                            fontWeight: 700,
+                            marginBottom: '2rem',
+                            color: '#1f2937',
+                            textAlign: 'center',
+                        }}
+                    >
+                        Inicio de sesión
+                    </Title>
 
                     <form onSubmit={handleSubmit}>
                         {error && (
-                            <div
-                                className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-6"
-                                role="alert">
-                                <span className="block sm:inline">{error}</span>
-                            </div>
+                            <Alert
+                                color="red"
+                                variant="light"
+                                style={{
+                                    backgroundColor: '#fee2e2',
+                                    border: '1px solid #f87171',
+                                    color: '#b91c1c',
+                                    marginBottom: '1.5rem',
+                                }}
+                            >
+                                {error}
+                            </Alert>
                         )}
 
                         <div className="mb-6">
-                            <label htmlFor="username" className="block text-gray-600 mb-2">
-                                Usuario
-                            </label>
-                            <input
-                                type="text"
-                                id="username"
+                            <TextInput
+                                label="Correo Institucional"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
-                                className="w-full p-4 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
                                 required
+                                withAsterisk={false}
+                                placeholder={"A940983456@my.uvm.edu.mx"}
                             />
                         </div>
 
                         <div className="mb-8">
-                            <label htmlFor="password" className="block text-gray-600 mb-2">
-                                Contraseña
-                            </label>
-                            <input
-                                type="password"
-                                id="password"
+                            <PasswordInput
+                                label="Contraseña"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="w-full p-4 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-600"
                                 required
+                                withAsterisk={false}
                             />
                         </div>
 
-                        <button
+                        <Button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full bg-red-700 text-white font-bold py-4 rounded-lg hover:bg-red-800 transition-colors duration-300 disabled:bg-red-400 disabled:cursor-not-allowed"
+                            fullWidth
+                            size="lg"
+                            styles={{
+                                root: {
+                                    backgroundColor: '#b91c1c',
+                                    color: '#ffffff',
+                                    fontWeight: 700,
+                                    paddingTop: '16px',
+                                    paddingBottom: '16px',
+                                    borderRadius: '8px',
+                                    transition: 'background-color 300ms',
+                                    '&:hover:not(:disabled)': {
+                                        backgroundColor: '#991b1b',
+                                    },
+                                    '&:disabled': {
+                                        backgroundColor: '#f87171',
+                                        cursor: 'not-allowed',
+                                        color: '#ffffff',
+                                    },
+                                },
+                            }}
                         >
                             {isLoading ? 'Verificando...' : 'Iniciar sesión'}
-                        </button>
+                        </Button>
                     </form>
                 </div>
             </div>

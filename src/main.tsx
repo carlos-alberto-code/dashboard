@@ -3,17 +3,17 @@ import './index.css'
 import App from './App.tsx'
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './components/context/AuthContext.tsx';
-import { MantineProvider } from '@mantine/core'
 import React from 'react'
+import {MantineSetup} from "./UVMTheme.tsx";
 
 createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <MantineProvider>
-      <BrowserRouter>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </BrowserRouter>
-    </MantineProvider>
-  </React.StrictMode>,
+    <React.StrictMode>
+        <MantineSetup>
+            <BrowserRouter>
+                <AuthProvider>
+                    <App />
+                </AuthProvider>
+            </BrowserRouter>
+        </MantineSetup>
+    </React.StrictMode>,
 )
