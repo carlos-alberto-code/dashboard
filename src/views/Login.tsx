@@ -39,30 +39,16 @@ const Login = () => {
 
             <div className="w-full lg:w-1/3 flex items-center justify-center p-8">
                 <div className="w-full max-w-md">
-                    <Title
-                        order={2}
-                        style={{
-                            fontSize: '1.875rem',
-                            fontWeight: 700,
-                            marginBottom: '2rem',
-                            color: '#1f2937',
-                            textAlign: 'center',
-                        }}
-                    >
+                    <Title order={2}>
                         Inicio de sesión
                     </Title>
 
                     <form onSubmit={handleSubmit}>
                         {error && (
                             <Alert
-                                color="red"
                                 variant="light"
-                                style={{
-                                    backgroundColor: '#fee2e2',
-                                    border: '1px solid #f87171',
-                                    color: '#b91c1c',
-                                    marginBottom: '1.5rem',
-                                }}
+                                color="red"
+                                className="mb-6"
                             >
                                 {error}
                             </Alert>
@@ -75,7 +61,7 @@ const Login = () => {
                                 onChange={(e) => setUsername(e.target.value)}
                                 required
                                 withAsterisk={false}
-                                placeholder={"A940983456@my.uvm.edu.mx"}
+                                placeholder="A940983456@my.uvm.edu.mx"
                             />
                         </div>
 
@@ -93,26 +79,8 @@ const Login = () => {
                             type="submit"
                             disabled={isLoading}
                             fullWidth
-                            size="lg"
-                            styles={{
-                                root: {
-                                    backgroundColor: '#b91c1c',
-                                    color: '#ffffff',
-                                    fontWeight: 700,
-                                    paddingTop: '16px',
-                                    paddingBottom: '16px',
-                                    borderRadius: '8px',
-                                    transition: 'background-color 300ms',
-                                    '&:hover:not(:disabled)': {
-                                        backgroundColor: '#991b1b',
-                                    },
-                                    '&:disabled': {
-                                        backgroundColor: '#f87171',
-                                        cursor: 'not-allowed',
-                                        color: '#ffffff',
-                                    },
-                                },
-                            }}
+                            color="red"
+                            variant="filled"
                         >
                             {isLoading ? 'Verificando...' : 'Iniciar sesión'}
                         </Button>
