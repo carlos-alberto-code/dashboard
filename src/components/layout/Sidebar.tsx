@@ -3,7 +3,7 @@ import {logout} from "../../api/login.ts";
 import {Heart, UsersRound, MessageSquare, BookOpen, Gamepad2, X, LogOut} from "lucide-react";
 
 const navigationItems = [
-    {icon: Heart, label: "Salud de la App", path: "/"},
+    {icon: Heart, label: "Salud de la App", path: "/salud"},
     {icon: UsersRound, label: "Usuarios", path: "/users"},
     {icon: MessageSquare, label: "Engagement", path: "/engagement"},
     {icon: BookOpen, label: "Aprendizaje", path: "/learning"},

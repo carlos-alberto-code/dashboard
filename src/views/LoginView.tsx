@@ -20,7 +20,7 @@ const LoginView = () => {
         setError(null);
         try {
             await login(loginCredentials);
-            navigate('/');
+            navigate('/salud');
         } catch (err: unknown) {
             let mensaje = 'Error inesperado';
             if (typeof err === 'object' && err !== null) {

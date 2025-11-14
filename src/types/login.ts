@@ -3,9 +3,13 @@ export interface LoginCredentials {
     contrasena: string;
 }
 
-export interface UsuarioAutenticado {
+export interface UsuarioLeido {
     id: number;
     nombre_completo: string;
+}
+
+export interface LoginRespuesta {
     access_token: string;
     token_type: string;
+    usuario: UsuarioLeido;
 }
