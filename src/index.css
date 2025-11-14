@@ -1,31 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --uvm-rojo: #d7282f;
-  --uvm-negro: #1b1c20;
-  --uvm-gris: #7e7d82;
+    --uvm-rojo: #d7282f;
+    --uvm-negro: #1b1c20;
+    --uvm-gris: #7e7d82;
 }
 
 .text-uvm-rojo {
-  color: var(--uvm-rojo);
+    color: var(--uvm-rojo);
 }
+
 .text-uvm-negro {
-  color: var(--uvm-negro);
+    color: var(--uvm-negro);
 }
+
 .text-uvm-gris {
-  color: var(--uvm-gris);
+    color: var(--uvm-gris);
 }
 
 .bg-uvm-rojo {
-  background-color: var(--uvm-rojo);
+    background-color: var(--uvm-rojo);
 }
+
 .bg-uvm-negro {
-  background-color: var(--uvm-negro);
+    background-color: var(--uvm-negro);
 }
+
 .bg-uvm-gris {
-  background-color: var(--uvm-gris);
+    background-color: var(--uvm-gris);
 }
-
-
-
 

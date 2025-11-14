@@ -1,4 +1,4 @@
-import './index.css'
+import './index.css' 
 import React from 'react'
 import App from './App.tsx'
 import {createRoot} from 'react-dom/client'
