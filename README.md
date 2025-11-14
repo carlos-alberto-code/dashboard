@@ -39,6 +39,22 @@ Antes de comenzar en el desarrollo, instala las dependencias del proyecto.
 ```bash
 npm install
 ```
+
+### 4. Configurar Variables de Entorno
+
+Crea un archivo `.env` en la raíz del proyecto (puedes copiar `.env.example`):
+
+```bash
+cp .env.example .env
+```
+
+Edita el archivo `.env` y configura la URL del backend:
+
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+> **Nota:** Asegúrate de que el backend esté ejecutándose en la URL configurada antes de iniciar el frontend.
 ## Editor de Código Recomendado
 
 Este proyecto está optimizado para trabajar con **IntelliJ IDEA 2025**, aunque también es compatible con:

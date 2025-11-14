@@ -6,12 +6,12 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import EngagementWindow from './components/EngagementWindow';
 import LearningWindow from './components/LearningWindow';
 import GamificationWindow from './components/GamificationWindow';
-import Login from "./views/Login.tsx";
+import LoginView from "./views/LoginView.tsx";
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<LoginView />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<MainLayout />}>
