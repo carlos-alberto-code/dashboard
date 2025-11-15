@@ -105,9 +105,9 @@ const SaludAppWindow: React.FC = () => {
   
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setData(AppHealthController.getMockData());
-    }, 500);
+    const timer = setTimeout(async () => {
+      setData(await AppHealthController.getSaludData());
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 

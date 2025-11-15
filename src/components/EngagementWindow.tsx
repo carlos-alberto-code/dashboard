@@ -233,9 +233,9 @@ const EngagementWindow: React.FC = () => {
   const [data, setData] = useState<EngagementData | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setData(EngagementController.getMockData());
-    }, 500);
+    const timer = setTimeout(async () => {
+      setData(await EngagementController.getEngagementData());
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 

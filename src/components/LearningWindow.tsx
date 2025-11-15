@@ -56,9 +56,9 @@ const LearningWindow: React.FC = () => {
   const [data, setData] = useState<LearningData | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setData(LearningController.getMockData());
-    }, 500);
+    const timer = setTimeout(async () => {
+      setData(await LearningController.getLearningData());
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 
