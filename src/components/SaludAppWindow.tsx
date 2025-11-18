@@ -1,8 +1,6 @@
-// src/components/SaludAppWindow.tsx
 import React, {useState, useEffect} from 'react';
 import {Title} from '@mantine/core';
 import type {AppHealthData} from '../types/appHealth.ts';
-import {AppHealthController} from '../controllers/SaludAppController';
 import {PieChart} from '@mui/x-charts/PieChart';
 import type {Metric} from '../types/appHealth.ts';
 import {LineChart} from '@mui/x-charts/LineChart';
@@ -103,7 +101,7 @@ function LatencyTrendCard({
 
 const SaludAppWindow: React.FC = () => {
 
-    const [data, setData] = useState<AppHealthData>(AppHealthController.getMockData());
+    const [data, setData] = useState<AppHealthData | null>(null);
 
     useEffect(() => {
         let mounted = true;
@@ -119,10 +117,7 @@ const SaludAppWindow: React.FC = () => {
             }
         };
 
-        fetchData().then(
-            () => {/* Fetch complete */
-            },
-        );
+        fetchData();
 
         return () => {
             mounted = false;
