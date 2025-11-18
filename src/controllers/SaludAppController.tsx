@@ -1,5 +1,5 @@
 
-import type { AppHealthData } from '../types/AppHealth';
+import type { AppHealthData } from '../types/appHealth.ts';
 
 export class AppHealthController {
   // servicio dummy para simular datos de salud de la app
