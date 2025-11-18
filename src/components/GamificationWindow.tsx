@@ -82,7 +82,7 @@ const GamificationWindow: React.FC = () => {
   const [data, setData] = useState<GamificationData | null>(null);
 
   useEffect(() => {
-    const t = setTimeout(() => setData(GamificationController.getMockData()), 400);
+    const t = setTimeout(async () => setData(await GamificationController.getGamificationData()), 0);
     return () => clearTimeout(t);
   }, []);
 

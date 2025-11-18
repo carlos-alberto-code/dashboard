@@ -74,7 +74,7 @@ const theme = createTheme({
                     paddingBottom: '16px',
                     borderRadius: '8px',
                     transition: 'background-color 300ms',
-                    '&[data-variant="filled"][data-color="red"]': {
+                    '&[dataVariant="filled"][dataColor="red"]': {
                         backgroundColor: '#b91c1c',
                         '&:hover:not(:disabled)': {
                             backgroundColor: '#991b1b',
@@ -92,13 +92,13 @@ const theme = createTheme({
             styles: {
                 root: {
                     padding: '12px 16px',
-                    '&[data-variant="light"][data-color="red"]': {
+                    '&[dataVariant="light"][dataColor="red"]': {
                         backgroundColor: '#fee2e2',
                         border: '1px solid #f87171',
                     },
                 },
                 message: {
-                    '&[data-variant="light"][data-color="red"]': {
+                    '&[dataVariant="light"][dataColor="red"]': {
                         color: '#b91c1c',
                     },
                 },
@@ -107,7 +107,7 @@ const theme = createTheme({
         Title: {
             styles: {
                 root: {
-                    '&[data-order="2"]': {
+                    '&[dataOrder="2"]': {
                         fontSize: '1.875rem',
                         fontWeight: 700,
                         marginBottom: '2rem',

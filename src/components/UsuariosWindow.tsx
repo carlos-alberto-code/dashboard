@@ -119,9 +119,9 @@ const UsuariosWindow: React.FC = () => {
 const [data, setData] = useState<UsersData | null>(null);
   
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setData(UsersController.getMockData());
-    }, 500);
+    const timer = setTimeout(async () => {
+      setData(await UsersController.getUsersData());
+    }, 0);
     return () => clearTimeout(timer);
   }, []);
 
