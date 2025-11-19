@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tailwindcss/utilities.css" layer(utilities);
 
 :root {
     --uvm-rojo: #d7282f;
@@ -29,4 +30,3 @@
 .bg-uvm-gris {
     background-color: var(--uvm-gris);
 }
-
