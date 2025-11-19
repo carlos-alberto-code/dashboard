@@ -1,4 +1,3 @@
-// src/components/LearningWindow.tsx
 import React, { useEffect, useState } from 'react';
 import { Title } from '@mantine/core';
 import { LineChart } from '@mui/x-charts/LineChart';

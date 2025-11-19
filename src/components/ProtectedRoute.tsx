@@ -1,4 +1,3 @@
-// src/components/ProtectedRoute.tsx
 import {Navigate, Outlet, useLocation} from 'react-router-dom';
 
 export const ProtectedRoute = () => {
@@ -12,7 +11,6 @@ export const ProtectedRoute = () => {
     return <Outlet/>;
 };
 
-// src/components/layout/Sidebar.tsx
 import {Heart, UsersRound, MessageSquare, BookOpen, Gamepad2, X, LogOut} from "lucide-react";
 import {NavLink} from "react-router-dom";
 import {useAuth} from "../context/AuthContext.tsx";

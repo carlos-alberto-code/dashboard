@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom';
 import type {LoginCredentials} from '../types/login.ts';
 import {TextInput, PasswordInput, Button, Alert, Title} from '@mantine/core';
 
-const LoginView = () => {
+const LoginWindow = () => {
     const navigate = useNavigate();
 
     const [isLoading, setIsLoading] = useState(false);
@@ -87,4 +87,4 @@ const LoginView = () => {
     );
 };
 
-export default LoginView;
+export default LoginWindow;

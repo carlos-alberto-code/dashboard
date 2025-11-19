@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {Title} from '@mantine/core';
+import * as React from 'react';
 import type {AppHealthData} from '../types/appHealth.ts';
 import {PieChart} from '@mui/x-charts/PieChart';
 import type {Metric} from '../types/appHealth.ts';
@@ -101,9 +100,9 @@ function LatencyTrendCard({
 
 const SaludAppWindow: React.FC = () => {
 
-    const [data, setData] = useState<AppHealthData | null>(null);
+    const [data, setData] = React.useState<AppHealthData | null>(null);
 
-    useEffect(() => {
+    React.useEffect(() => {
         let mounted = true;
 
         const fetchData = async () => {
@@ -146,24 +145,24 @@ const SaludAppWindow: React.FC = () => {
     return (
         <div className="p-6 min-h-screen flex flex-col gap-8">
             <div className="mb-2">
-                <Title
-                    order={1}
+                {/* Replaced Mantine Title with semantic h1 */}
+                <h1
                     className="text-3xl font-extrabold text-uvm-negro mb-2"
                 >
                     Salud de la App
-                </Title>
+                </h1>
             </div>
 
             <div style={gridStyles}>
                 {/* Sesiones sin fallos */}
                 <div style={gridItemStyles.div1}
                      className="relative bg-white border border-gray-300 rounded-xl py-4 px-4 shadow flex flex-col items-center">
-                    <Title
-                        order={2}
+                    {/* Replaced Mantine Title with semantic h2 */}
+                    <h2
                         className="text-xl text-uvm-negro text-left self-start py-2"
                     >
                         Sesiones sin fallos
-                    </Title>
+                    </h2>
 
                     <span className="text-base text-uvm-gris">
             Porcentaje de sesiones sin fallos
